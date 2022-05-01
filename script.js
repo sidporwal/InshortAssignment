@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, "build")));
 
 app.use((req, res, next) => {
   res.set("Access-Control-Allow-Origin", "*");
@@ -22,9 +22,9 @@ app.get("/api/covidData", async (req, res) => {
   }
 });
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-const port = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening to port ${port}..`));
